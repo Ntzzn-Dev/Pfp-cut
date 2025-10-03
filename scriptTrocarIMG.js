@@ -49,7 +49,7 @@ const fileInput = document.getElementById('inputField');
 const imageCanvas = document.getElementById('imageCanvas');
 const cv = document.getElementById('canvas');
 const imageCtx = imageCanvas.getContext('2d');
-const switchInput = document.getElementById('switch1');
+const switchInput = document.getElementById('switchround');
 let sliderValue = 100;
 
 let img = new Image();
@@ -58,7 +58,7 @@ let cropWidth = sliderValue, cropHeight = sliderValue;
 let isDragging = false; 
 
 let movingImage = new Image();
-movingImage.src = 'pfp-canva1x1.png'; 
+movingImage.src = 'src/pfp-canva1x1.png'; 
 let movingImgLoaded = false;
 let movingImgX = 50, movingImgY = 50;
 let movingImgWidth = sliderValue, movingImgHeight = sliderValue;
@@ -70,6 +70,8 @@ movingImage.onload = () => {
 switchInput.addEventListener('change', function() {
     const img = document.getElementById('fotoPerfil');
     img.classList.toggle('roundedimg');
+    draw();
+    document.getElementById('submitButton').click();
 })
 
 imageCanvas.addEventListener('wheel', (event) => {
@@ -84,7 +86,9 @@ imageCanvas.addEventListener('wheel', (event) => {
         sliderValue = parseInt(sliderValue) - 50;
     }
 
-    if(sliderValue > 685.27){ sliderValue = 685.27; }
+    const rect = imageCanvas.getBoundingClientRect();
+
+    if(sliderValue > rect.height){ sliderValue = rect.height; }
     if(sliderValue < 100){ sliderValue = 100; }
 
     let newCropWidth = sliderValue;
@@ -183,6 +187,7 @@ imageCanvas.addEventListener('mouseup', () => {
 });
 
 function draw() {
+    if(img.src == "") return;
     imageCtx.clearRect(0, 0, imageCanvas.width, imageCanvas.height); 
     const scale = Math.min(imageCanvas.width / img.width, imageCanvas.height / img.height);
 

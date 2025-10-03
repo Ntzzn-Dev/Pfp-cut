@@ -29,7 +29,7 @@ Este projeto é uma aplicação web simples que permite ao usuário carregar ima
 ### Tela Principal  
 Na tela principal, você tem a opção de arredondar, tanto o corte quanto a exibição da imagem, salvar imagem que esta em exibição, ou trocar a imagem.  
 <p float="left">
-<img src="assets/PfpImg.png" width="500"/>
+<img src="assets/index.png" width="500"/>
 </p>
 
 ### Tela de corte   
@@ -43,3 +43,5 @@ Assim que cortada a imagem fica em exibição pronta para o download.
 <p float="left">
 <img src="assets/PfpOtherImg.png" width="500"/>
 </p>
+
+Veja o changelog completo em [CHANGELOG.md](CHANGELOG.md)
