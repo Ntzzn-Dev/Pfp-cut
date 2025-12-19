@@ -12,3 +12,10 @@ Todas as mudanças neste projeto serão documentadas aqui.
 - Ajustes nos botões, e nome do arquivo.  
 - Redesenho automático do canva quando habilitado o arredondar.  
 - Ao mudar o estado do switch de arredondar, muda o formato a ser salvo automáticamente.  
+
+### version 2.1  
+- Correção na demarcação de corte redondo.
+- Correções de estilização.  
+- Mini menu de configurações pré definidas.
+- Adição da possibilidade de Renomear imagens salvas.
+- Tema escuro adicionado.  

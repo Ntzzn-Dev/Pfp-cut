@@ -1,57 +1,66 @@
+:root {
+  --main-color: #3498db;
+  --bg-color: antiquewhite;
+  --gd-1: #e2e2e2;
+  --gd-2: #dee2f1;
+  --text-color: #212529;
+}
+
 body{
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
 }
 .popupContainer {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 94vh;
-    height: 76vh;
-    background: linear-gradient(to right, #e2e2e2, #dee2f1);
-    border-radius: 2%;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 94vh;
+  height: 76vh;
+  background: linear-gradient(to right,  var(--gd-1), var(--gd-2));
+  border-radius: 2%;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .hidden{
-    display: none;
+  display: none;
 }
 
 button#popup {
-    background: #512da8;
-    color: #fff;
-    font-size: 21pt;
-    letter-spacing: 1px;
-    padding: 12px 40px;
-    text-transform: uppercase;
-    border-radius: 27px;
-    border: 0;
-    cursor: pointer;
+  background: #512da8;
+  color: #fff;
+  font-size: 21pt;
+  letter-spacing: 1px;
+  padding: 12px 40px;
+  text-transform: uppercase;
+  border-radius: 27px;
+  border: 0;
+  cursor: pointer;
 }
 button#popup:hover{
-    background: #381a80
+  background: #381a80
 }
 #closeButton {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #512da8;
-    color: #fff;
-    font-size: 16pt;
-    letter-spacing: 1px;
-    border-radius: 50%;
-    border: 0;
-    cursor: pointer;
-    width: 33px;
-    height: 33px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #512da8;
+  color: #fff;
+  font-size: 16pt;
+  letter-spacing: 1px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  width: 33px;
+  height: 33px;
 }
 div#buttons {
   width: 100%;
@@ -75,39 +84,55 @@ div#buttons {
   white-space: nowrap;
   margin: 0;
   font-size: 16pt;
+  color: var(--text-color);
 }
 div#canvas{
-    margin: auto;
-    width: 90%;
-    height: 68%;
+  margin: auto;
+  width: 90%;
+  height: 68%;
 }
 
 #inputField {
-    display: none;
+  display: none;
 }
 
 .custom-file-upload, #submitButton, .trocarIMG, .salvarIMG {
-    background-color: #512da8;
-    color: #fff;
-    font-size: 16pt;
-    letter-spacing: 1px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: 0;
-    cursor: pointer;
-    display: inline-block;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: #512da8;
+  color: #fff;
+  font-size: 16pt;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.custom-file-upload, #submitButton, .trocarIMG{
+  border-radius: 10px;
+}
+
+.salvarIMG {
+  &.dir{
+    border-radius: 0 10px 10px 0;
+  }
+  &.esq{
+    border-radius: 10px 0 0 10px;
+  }
+}
+
+.btns-save{
+  display: flex;
 }
 
 .custom-file-upload:hover, #submitButton:hover, .trocarIMG:hover, .salvarIMG:hover {
-    background-color: #31186b;
-    transform: scale(1.2);
+  background-color: #31186b;
+  transform: scale(1.05);
 }
 
 .btnsimg{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .perfil-container {
@@ -125,13 +150,21 @@ div#canvas{
   align-items: center;
   flex-direction: row;
   gap: 10px;
+  justify-content: space-between;
+}
+
+.text-input{
+  height: 48px;
+  border-radius: 24px;
+  width: 91.19px;
+  border: none;
 }
 
 img{
-    border: 4px solid #512da8;
-    width: 20em;
+  border: 4px solid #512da8;
+  width: 20em;
 }
 
 .roundedimg{
-    border-radius: 50%;
+  border-radius: 50%;
 }

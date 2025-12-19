@@ -1,46 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pfp-Cut</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="switch.css">
-    <link rel="icon" type="image/x-icon" href="src/cut.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pfp-Cut</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="switch.css">
+  <link rel="stylesheet" href="menu.css">
+  <link rel="icon" type="image/x-icon" href="src/cut.png">
 </head>
 <body>
-    <div class="perfil-container">
-        <img class="img-perfil" id="fotoPerfil" src="src/pfp-standard.png" alt="Foto de Perfil"/>
-        <div class="btnsimg">
-            <button type="button" class="trocarIMG">Trocar</button>
+  <div class="gear" id="gear"></div>
 
-            <form method="POST" action="/uploadFoto" class="perfil-form">
-                <input type="hidden" id="fotoUsuario" name="fotoUsuario">
-                <button id="save-img" type="button" class="salvarIMG">Salvar Foto</button>
-            </form>
-        </div>
+  <div class="menu" id="menu">
+    <div class="switch-section">
+      <label for="switchtema">Tema</label>
+      <div class="switch-wrap">
+        <input type="checkbox" id="switchtema" class="switch-input" />
+        <label for="switchtema" class="switch"></label>
+      </div>
+    </div>
+    <div class="switch-section">
+      <label for="switchround">Arredondar</label>
+      <div class="switch-wrap">
+        <input type="checkbox" id="switchround" class="switch-input" />
+        <label for="switchround" class="switch"></label>
+      </div>
+    </div>
+    <div class="switch-section">
+      <label for="renametext">Renomear</label>
+        <input type="text" id="renametext" class="text-input" placeholder="original" title="Deixe vazio para usar o nome original da imagem"/>
+    </div>
+  </div>
 
-        <div class="switch-section">
-            <label for="switchround">Arredondar</label>
-            <div class="switch-wrap">
-                <input type="checkbox" id="switchround" class="switch-input" />
-                <label for="switchround" class="switch"></label>
-            </div>
+  <div class="perfil-container">
+    <img class="img-perfil" id="fotoPerfil" src="src/pfp-standard.png" alt="Foto de Perfil"/>
+    <div class="btnsimg">
+      <button type="button" class="trocarIMG">Trocar</button>
+
+      <form method="POST" action="/uploadFoto" class="perfil-form">
+        <input type="hidden" id="fotoUsuario" name="fotoUsuario">
+        <div class="btns-save">
+          <button id="save-img-png" type="button" class="salvarIMG esq">Baixar .png</button>
+          <button id="save-img-bmp" type="button" class="salvarIMG dir">Baixar .bmp</button>
         </div>
+      </form>
     </div>
-    <div class="hidden popupContainer">
-        <div id="canvas">
-            <canvas id="imageCanvas" style="height: 100%; width: 100%; border-radius: 5%; box-shadow: 0 4px 8px rgb(0 0 0 / 10%);"></canvas>
-        </div>
-        <button id="closeButton">X</button>
-        <div id="buttons">
-            <input type="file" id="inputField" accept=".png, .jpg, .jpeg">
-            <label class="custom-file-upload" id="customButton">Arquivo</label>
-            <p id="fileName">Nenhum arquivo selecionado</p>
-            <button id="submitButton">Enviar</button>
-        </div>
+  </div>
+  <div class="hidden popupContainer">
+    <div id="canvas">
+      <canvas id="imageCanvas" style="height: 100%; width: 100%; border-radius: 5%; box-shadow: 0 4px 8px rgb(0 0 0 / 10%);"></canvas>
     </div>
-    <script src="scriptTrocarIMG.js"></script>
+    <button id="closeButton">X</button>
+    <div id="buttons">
+      <input type="file" id="inputField" accept=".png, .jpg, .jpeg">
+      <label class="custom-file-upload" id="customButton">Arquivo</label>
+      <p id="fileName">Nenhum arquivo selecionado</p>
+      <button id="submitButton">Enviar</button>
+    </div>
+  </div>
+  <script src="scriptTrocarIMG.js"></script>
+  <script src="menu.js"></script>
 </body>
 </html>
