@@ -19,3 +19,10 @@ Todas as mudanças neste projeto serão documentadas aqui.
 - Mini menu de configurações pré definidas.
 - Adição da possibilidade de Renomear imagens salvas.
 - Tema escuro adicionado.  
+
+### version 3.0
+- Correção de cores para nova paleta.  
+- Correção de imagem padrão.
+- Inicialização automática do canva.  
+- Oculatção de canva com esc.  
+- Adição de um slider fisico para controle de zoom sem scroll.  
