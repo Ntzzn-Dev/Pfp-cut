@@ -1,23 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector(".trocarIMG").addEventListener("click", function () {
-        document.querySelector(".popupContainer").classList.toggle("hidden");
+    document.querySelector(".ajustar-img").addEventListener("click", function () {
+        document.querySelector(".popup-container").classList.toggle("hidden");
     });
 
-    document.getElementById("closeButton").addEventListener("click", function () {
-        document.querySelector(".popupContainer").classList.add("hidden");
+    document.getElementById("close-button").addEventListener("click", function () {
+        document.querySelector(".popup-container").classList.add("hidden");
     });
 
-    const inputField = document.getElementById("inputField");
     const customButton = document.getElementById("customButton");
     const fileName = document.getElementById("fileName");
 
     customButton.addEventListener("click", function () {
-        inputField.click();
+        fileInput.click();
     });
 
-    inputField.addEventListener("change", function () {
-        if (inputField.files.length > 0) {
-            fileName.textContent = inputField.files[0].name;
+    fileInput.addEventListener("change", function () {
+        if (fileInput.files.length > 0) {
+            fileName.textContent = fileInput.files[0].name;
         } else {
             fileName.textContent = "Nenhum arquivo selecionado";
         }
@@ -30,14 +29,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById('save-img-png').addEventListener('click', () => saveImg(true));
 document.getElementById('save-img-bmp').addEventListener('click', () => saveImg(false));
-document.getElementById('submitButton').addEventListener('click', () => enviar() );
+document.getElementById('submit-button').addEventListener('click', () => enviar() );
 
-const fileInput = document.getElementById('inputField');
+const fileInput = document.getElementById('input-field');
 const slider = document.getElementById('slider');
-const imageCanvas = document.getElementById('imageCanvas');
+const imageCanvas = document.getElementById('image-canvas');
 const cv = document.getElementById('canvas');
 const imageCtx = imageCanvas.getContext('2d');
 const switchInput = document.getElementById('switchround');
+const imgDiv = document.getElementById('foto-perfil');
+
 let sliderValue = 100;
 
 let img = new Image();
@@ -87,7 +88,6 @@ slider.addEventListener("input", () => {
 });
 
 switchInput.addEventListener('change', function() {
-    const imgDiv = document.getElementById('fotoPerfil');
     imgDiv.classList.toggle('roundedimg');
     if (!imgChanged) moveToZeroPoint();
     draw(); 
@@ -194,7 +194,7 @@ imageCanvas.addEventListener('mouseup', () => {
 
 document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
-        document.querySelector(".popupContainer").classList.add("hidden");
+        document.querySelector(".popup-container").classList.add("hidden");
     }
 });
 
@@ -257,14 +257,15 @@ function draw() {
     if (movingImgLoaded && switchInput.checked) {
         imageCtx.drawImage(movingImage, movingImgX, movingImgY, movingImgWidth, movingImgHeight);
     }
-        /*
-            VER ÁREA DISPONÍVEL
-            imageCtx.beginPath();
-            imageCtx.rect((cropWidth / 2), (cropHeight / 2), imageCanvas.width - cropWidth, imageCanvas.height - cropHeight);
-            imageCtx.strokeStyle = 'blue'; // Define a cor do retângulo de recorte
-            imageCtx.lineWidth = 2; // Define a largura da linha do retângulo de recorte
-            imageCtx.stroke();
-        */
+    
+    /*
+        VER ÁREA DISPONÍVEL
+        imageCtx.beginPath();
+        imageCtx.rect((cropWidth / 2), (cropHeight / 2), imageCanvas.width - cropWidth, imageCanvas.height - cropHeight);
+        imageCtx.strokeStyle = 'blue'; // Define a cor do retângulo de recorte
+        imageCtx.lineWidth = 2; // Define a largura da linha do retângulo de recorte
+        imageCtx.stroke();
+    */
 
     const lineWidth2 = 1100;
     
@@ -280,7 +281,7 @@ function draw() {
 }
 
 function enviar(){
-    const targetSize = 500;
+    const targetSize = document.getElementById("res-out").value;
     
     const tempCanvas = document.createElement('canvas');
     tempCanvas.width = targetSize;
@@ -299,10 +300,30 @@ function enviar(){
         tempContext.clip();
     }
 
+    const scale = Math.min(imageCanvas.width / img.width, imageCanvas.height / img.height);
+
+    const newWidth = img.width * scale;
+    const newHeight = img.height * scale;
+
+    const offsetX = (imageCanvas.width - newWidth) / 2;
+    const offsetY = (imageCanvas.height - newHeight) / 2;
+
+    const scaleX = img.width / newWidth;
+    const scaleY = img.height / newHeight;
+
+    tempContext.imageSmoothingEnabled = true;
+    tempContext.imageSmoothingQuality = "high";
+
     tempContext.drawImage(
-        imageCanvas, 
-        startX, startY, cropWidth, cropHeight, 
-        0, 0, targetSize, targetSize
+        img,
+        (startX - offsetX) * scaleX,
+        (startY - offsetY) * scaleY,
+        cropWidth * scaleX,
+        cropHeight * scaleY,
+        0,
+        0,
+        targetSize,
+        targetSize
     );
 
     const image = tempCanvas.toDataURL("image/png");
@@ -313,19 +334,18 @@ function enviar(){
     
     document.querySelector('.img-perfil').src = image;
     
-    document.querySelector('.popupContainer').classList.add('hidden');
+    document.querySelector('.popup-container').classList.add('hidden');
 }
 
 function saveImg(png) {
     const name = document.getElementById('renametext').value || document.getElementById('fileName').textContent.split('.')[0];
     const ext = png ? "png" : "bmp"; 
-    const img = document.getElementById('fotoPerfil');
     const canvas = document.createElement('canvas');
-    canvas.width = img.naturalWidth;
-    canvas.height = img.naturalHeight;
+    canvas.width = imgDiv.naturalWidth;
+    canvas.height = imgDiv.naturalHeight;
     const ctx = canvas.getContext('2d');
 
-    ctx.drawImage(img, 0, 0);
+    ctx.drawImage(imgDiv, 0, 0);
 
     let url;
     if (png) {

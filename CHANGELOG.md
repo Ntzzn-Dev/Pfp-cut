@@ -26,3 +26,8 @@ Todas as mudanças neste projeto serão documentadas aqui.
 - Inicialização automática do canva.  
 - Oculatção de canva com esc.  
 - Adição de um slider fisico para controle de zoom sem scroll.  
+
+### version 4.0
+- Melhora na qualidade final da img pfp gerada.  
+- Alteração de icones para SVGs.  
+- Mudança de temas.  

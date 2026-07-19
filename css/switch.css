@@ -12,7 +12,7 @@
 
 .switch {
   --w: calc(var(--switch-size) * var(--switch-width-mult));
-  display: inline-block;
+  display: block;
   width: var(--w);
   height: var(--switch-size);
   background-color: var(--switch-bg-off);

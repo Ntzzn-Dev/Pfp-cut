@@ -4,7 +4,6 @@
 **Autor:** Jhonatan | Nathan  
 **GitHub:** https://github.com/Ntzzn-Dev  
 **Data de criação:** 25/09/2025  
-**Última atualização:** 18/07/2026
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -33,14 +32,10 @@ manual de arquivos BMP.
 -   ✅ Upload de imagens (.png, .jpg, .jpeg)
 -   ✅ Área de recorte interativa
 -   ✅ Arrastar com o mouse
--   ✅ Zoom utilizando scroll
--   ✅ Zoom utilizando slider
--   ✅ Máscara quadrada
--   ✅ Máscara circular
+-   ✅ Zoom utilizando scroll / slider
+-   ✅ Máscara quadrada / circular
 -   ✅ Pré-visualização em tempo real
--   ✅ Exportação em PNG
--   ✅ Exportação em BMP
--   ✅ Exportação em Base64
+-   ✅ Exportação em PNG / BMP
 
 ------------------------------------------------------------------------
 
@@ -78,11 +73,11 @@ Abra o arquivo `index.html`
 
 ## Como utilizar
 
-1.  Clique em **Trocar imagem**.
-2.  Selecione uma imagem do computador.
-3.  Posicione o recorte com o mouse.
-4.  Ajuste o tamanho usando o scroll ou slider.
-5.  Escolha entre recorte quadrado ou circular.
+1.  Escolha entre recorte quadrado ou circular.
+2.  Clique em **Ajustar imagem**.
+3.  Selecione uma imagem do computador.
+4.  Posicione o recorte com o mouse.
+5.  Ajuste o tamanho usando o scroll ou slider.
 6.  Clique em **Enviar**.
 7.  Salve em PNG ou BMP.
 
@@ -93,18 +88,24 @@ Abra o arquivo `index.html`
 ### Tela principal
 
 <p float="left">
-<img src="assets/index.png" width="500"/>
+<img src="assets/index_light.png" width="500"/>
+</p>
+<p float="left">
+<img src="assets/index_dark.png" width="500"/>
 </p>
 
 ### Tela de recorte
 <p float="left">
-<img src="assets/pfpCutImg.png" width="500"/>
+<img src="assets/cut_light.png" width="500"/>
+</p>
+<p float="left">
+<img src="assets/cut_dark.png" width="500"/>
 </p>
 
 ### Resultado
 
 <p float="left">
-<img src="assets/pfpOtherImg.png" width="500"/>
+<img src="assets/result.png" width="500"/>
 </p>
 
 ------------------------------------------------------------------------

@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+  background-color: var(--dark-color);
+}
+
+.bg{
+  position: fixed;
+  z-index: -1;
+  object-fit: cover;
+  backdrop-filter: blur(50px);
+  height: 100%;
+  width: 100%;
+
+  user-select: none;
+  pointer-events: none;
+
+  background: linear-gradient(260deg, var(--primary-color), var(--secondary-color));
+  background-size: 400% 400%;
+
+  -webkit-animation: gradient 3s ease infinite;
+  -moz-animation: gradient 3s ease infinite;
+  animation: gradient 3s ease infinite;
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
